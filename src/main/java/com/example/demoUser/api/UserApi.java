@@ -25,10 +25,10 @@ public class UserApi {
 	public UserResponse updateOrSave(@RequestBody UserRequest userRequest){
 		
 		// Mapeo request dto ==&amp;amp;amp;amp;amp;gt; entity
-	    User User = mapper.map(userRequest, User.class);
+	    User user = mapper.map(userRequest, User.class);
 	     
 	    // Invoca lógica de negocio
-	    User updatedUser = userService.save(User);
+	    User updatedUser = userService.save(user);
 	     
 	    // Mapeo entity ==&amp;amp;gt; response dto
 	    UserResponse UserResponse = mapper.map(updatedUser, UserResponse.class); 
@@ -37,8 +37,11 @@ public class UserApi {
 	}
 	
 	@RequestMapping(value="/userDelete", method=RequestMethod.POST)
-	public String delete(@RequestBody User user){
-			userService.delete(user);
+	public String delete(@RequestBody UserRequest userRequest){
+		
+		// Mapeo request dto ==&amp;amp;amp;amp;amp;gt; entity
+	    User user = mapper.map(userRequest, User.class);
+		userService.delete(user);
 	    return "Usuario Borrado Satisfactoriamente";
 	}
 	
