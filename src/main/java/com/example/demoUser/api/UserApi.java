@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demoUser.Service.UserService;
+
 import com.example.demoUser.dto.User;
+import com.example.demoUser.service.UserService;
 
 @RestController
 public class UserApi {
